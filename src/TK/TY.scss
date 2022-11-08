@@ -1,0 +1,185 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+@font-face {
+  font-family: 'NeoDunggeunmo';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* { margin:0; padding:0; font-size:1.2rem;
+   margin-bottom: 0;
+   line-height:1.2rem;
+   letter-spacing: -0.03em;
+   font-family:'NeoDunggeunmo', sans-serif;}
+ul, li, dl, dt, dd, ol {list-style:none}
+a {color:#222; text-decoration: none}
+a:hover {color:red}
+h1, h2, h3, h4, h5, h6 {font-weight:normal;}
+
+$myfont : 'NeoDunggeunmo', sans-serif;
+$linkFC : #222;
+$activeFC: green;
+$conWidth : 1280px;
+$minHeight : 600px;
+
+/*레이아웃*/
+
+#allMenu{
+    border:0;
+    width: 3rem;
+    height: 3rem;
+    background-color: transparent;
+    padding: 0;
+    position: relative;   
+
+    .open{
+      ::after{
+        transform: rotate(-45deg);
+      }
+      ::before{
+        transform: rotate(45deg);
+      }
+      span{
+        display: none;
+      }
+     
+    }
+    span{
+      display: block;
+      height: 2px;
+      background-color: #fff;
+      margin: 11px 0;
+    }
+    ::after{
+      content: "";
+      display: block;
+      position: absolute;
+      background-color: #fff;
+      left: 0;
+      width: 100%;
+      bottom: 0;
+    }
+    ::before{
+      content: "";
+      display: block;
+      position: absolute;
+      background-color: #fff;
+      left: 0;
+      width: 100%;
+      top: 0;
+    }
+
+    &+{
+      .depth1{
+
+      }
+    } 
+}
+
+//모바일 때 
+#allMenu.open + .depth1{
+  display: block !important; position: absolute;
+  background-color: black;
+  left: 0;
+  padding: 20px;
+  top: 100%;
+}
+
+.scrollBG{
+  background-color: #222 !important;
+  transition: 0.3s;
+}
+
+#hd{
+  background-color: transparent;
+  
+}
+
+#nav {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;  
+  left:0; right:0; top:0; 
+  z-index:10000;
+  
+  a{
+    display: block;
+  }
+
+  h1 {
+    
+    margin-bottom: 0 !important;
+    a{
+      img{
+        width:200px;
+      }
+    }
+  } ////h1
+
+  ul{
+    margin-bottom: 0 !important;
+  }
+
+  .depth1 {
+    display: flex; //container
+   
+    li { //items
+     margin:0 15px;
+
+     &.active a{
+        color: red;
+      }
+    
+  }
+}
+}
+//Sectiom
+.wrap {
+   h2{
+      text-align: center;
+      &:before{
+        content: "";
+        display: inline-block;
+        height:3px; width:20px;
+        background-color:$linkFC;
+        margin:0 auto 15px;
+      }
+   }
+   section{
+     padding:80px 0;
+     min-height:$minHeight;
+   }
+   #about {
+      padding-top:100px;
+      // background-image: url(../img/img.png);  
+      background-repeat: no-repeat;
+      width: 100vw;
+      height: 60vh;
+      background-size: cover;
+   }
+   #portfoloio {
+
+   }
+   #preInterview {
+     background-color:#ccc;
+   }
+   #contact {
+    #interview{ max-width: $conWidth; margin:0 auto;
+     dt{
+       border-bottom:1px solid $linkFC; padding: 10px;
+       &:before{ content: "Q"; margin-right: 20px; font-size: 1.2em; color:red; vertical-align: middle}
+       strong{ vertical-align: middle; font-size: 2em; font-weight: normal }
+       &.show{ border-bottom-width:3px; border-color:$linkFC;
+          strong{ font-weight: bold;}
+          &:before{ color:black; font-weight: bold;}
+          & + *{ display: block}
+             }
+      }
+     dd{
+       display: none; padding: 20px  50px;
+     }
+    }
+   }
+}
