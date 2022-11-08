@@ -5,11 +5,13 @@ import './TK/TY.scss';
 import Header from './TK/Header';
 import Footer from './TK/Footer'
 import reportWebVitals from './reportWebVitals';
+import Section from './TK/Section';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Header></Header>
+    <Section></Section>
     <Footer></Footer>
   </React.StrictMode>
 );
