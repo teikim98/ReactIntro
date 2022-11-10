@@ -1,11 +1,11 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import './TY.scss';
+import '../css/TY.min.css';
 
 export default function Footer() {
     return(
-      <footer className='footer text-center fixed-bottom'>
+      <footer className='footer text-center'>
         <div className="container">
         <ul className="list-inline">
           <li className="list-inline-item">
